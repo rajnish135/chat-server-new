@@ -11,10 +11,15 @@ const getConversation = require("../helpers/getConversation.js")
 
 const app = express();
 
+// app.use(cors({
+//     origin: process.env.FRONTEND_URL,
+//     credentials: true
+// }));
 app.use(cors({
-    origin: process.env.FRONTEND_URL,
-    credentials: true
-}));
+   origin: '*', // Allow all origins
+   credentials: true // Note: 'credentials' doesn't work with origin '*'
+ }));
+
 
 //socket connection
 const server = http.createServer(app)
