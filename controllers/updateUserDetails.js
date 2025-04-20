@@ -7,7 +7,16 @@ const fs = require("fs")
 async function updateUserDetails(req, res) {
   try {
 
-    const token = req.cookies.token || '';
+    // Try getting token from Authorization header
+    const authHeader = request.headers.authorization || "";
+    let token = authHeader.startsWith("Bearer ")
+      ? authHeader.split(" ")[1]
+      : "";
+
+    // If not found in header, try from cookies
+    if (!token && request.cookies?.token) {
+      token = request.cookies.token;
+    }
 
     const user = await getUserDetailsFromToken(token);
 

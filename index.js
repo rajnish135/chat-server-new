@@ -5,7 +5,7 @@ const router = require('./routes/index')
 const cookieParser = require("cookie-parser")
 const {app,server} = require("./socket/index")
 require('dotenv').config();
-// require("dotenv").config
+
 
 // const app = express();
 
