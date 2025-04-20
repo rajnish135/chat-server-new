@@ -1,8 +1,8 @@
 const express = require("express")
 const {Server} = require("socket.io")
 const http = require('http')
-const cors = require("cors")
 require('dotenv').config();
+const cors = require("cors")
 const getUserDetailsFromToken = require('../helpers/getUserDetailsFromToken');
 const UserModel = require("../models/UserModel");
 const {ConversationModel} = require("../models/ConversationModel.js")
@@ -12,9 +12,9 @@ const getConversation = require("../helpers/getConversation.js")
 const app = express();
 
 app.use(cors({
-   origin: [process.env.FRONTEND_URL, "http://localhost:5173"], 
-   credentials: true 
- }));
+    origin: "https://chatapp-client-xi.vercel.app",
+    credentials: true 
+}));
 
 
 //socket connection
