@@ -5,8 +5,8 @@ const cors = require("cors")
 require('dotenv').config();
 const getUserDetailsFromToken = require('../helpers/getUserDetailsFromToken');
 const UserModel = require("../models/UserModel");
-const {ConversationModel} = require("../models/conversationModel.js")
-const {MessageModel} = require("../models/messageModel.js")
+const {ConversationModel} = require("../models/ConversationModel.js")
+const {MessageModel} = require("../models/MessageModel.js")
 const getConversation = require("../helpers/getConversation.js") 
 
 const app = express();
