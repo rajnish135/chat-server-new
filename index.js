@@ -12,10 +12,10 @@ const cors = require("cors")
 require('dotenv').config();
 
 app.use(cors({
-    origin: ["http://localhost:5173", "*"],
-    credentials:true
-}
-))
+   origin: ["http://localhost:5173", "https://chatapp-client-1-7fst.onrender.com"],
+   credentials: true
+}));
+
 // app.use(cors({
 //    origin: '*', // Allow all origins
 //    credentials: true // Note: 'credentials' doesn't work with origin '*'
