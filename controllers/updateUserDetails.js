@@ -8,17 +8,20 @@ async function updateUserDetails(req, res) {
   try {
 
     // Try getting token from Authorization header
-    const authHeader = request.headers.authorization || "";
+    const authHeader = req.headers.authorization || "";
     let token = authHeader.startsWith("Bearer ")
       ? authHeader.split(" ")[1]
       : "";
 
     // If not found in header, try from cookies
-    if (!token && request.cookies?.token) {
-      token = request.cookies.token;
+    if (!token && req.cookies?.token) {
+      token = req.cookies.token;
     }
-
+    console.log("token ", token);
+    
     const user = await getUserDetailsFromToken(token);
+
+    console.log("user ", user)
 
     const { name } = req.body;
 
@@ -52,6 +55,7 @@ async function updateUserDetails(req, res) {
     });
   } 
   catch (error) {
+    console.log("error in updateuserdetails", error)
     // Clean up file if error occurred
     if (req.file?.path) {
       fs.unlink(req.file.path, (err) => {
