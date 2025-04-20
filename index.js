@@ -11,15 +11,15 @@ const {app,server} = require("./socket/index")
 const cors = require("cors")
 require('dotenv').config();
 
-// app.use(cors({
-//     origin: process.env.FRONTEND_URL,
-//     credentials:true
-// }
-// ))
 app.use(cors({
-   origin: '*', // Allow all origins
-   credentials: true // Note: 'credentials' doesn't work with origin '*'
- }));
+    origin: process.env.FRONTEND_URL,
+    credentials:true
+}
+))
+// app.use(cors({
+//    origin: '*', // Allow all origins
+//    credentials: true // Note: 'credentials' doesn't work with origin '*'
+//  }));
 
 app.use(express.json());
 app.use(cookieParser());
