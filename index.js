@@ -12,7 +12,7 @@ const cors = require("cors")
 require('dotenv').config();
 
 app.use(cors({
-   origin: ["http://localhost:5173", "https://chatapp-client-1-7fst.onrender.com"],
+   origin: ["https://chatapp-client-xi.vercel.app"],
    credentials: true
 }));
 
