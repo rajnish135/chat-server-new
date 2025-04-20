@@ -29,7 +29,8 @@ async function checkPassword(req,res){
 
         const cookieOptions = {
             httpOnly:true,
-            secure:true,
+            expires: new Date(Date.now() + 24 * 60 * 60 * 1000),
+        
         }
 
         return res.cookie('token',token,cookieOptions).status(200).json({
