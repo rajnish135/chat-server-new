@@ -4,15 +4,16 @@ const connectDB = require('./config/connectDB')
 const router = require('./routes/index')
 const cookieParser = require("cookie-parser")
 const {app,server} = require("./socket/index")
+require('dotenv').config();
+// require("dotenv").config
 
 // const app = express();
 
 //CORS-(CROSS ORIGIN RESOURCE SHARING)
 const cors = require("cors")
-require('dotenv').config();
 
 app.use(cors({
-   origin: "*",
+   origin: process.env.FRONTEND_URL,
    credentials: true
 }));
 
